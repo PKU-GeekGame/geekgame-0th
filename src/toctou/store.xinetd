@@ -1,0 +1,13 @@
+service store
+{
+	type			= UNLISTED
+	socket_type		= stream
+	protocol		= tcp
+	wait			= no
+	user			= player
+	server			= /bin/python3
+    server_args		= /chall/service.py
+	log_on_failure	+=	USERID
+	port			= 3000
+	disable			= no
+}

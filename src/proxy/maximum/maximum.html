@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>获取最大值</title>
+        <link rel="stylesheet" type="text/css" href="maximum.css">
+    </head>
+    <body>
+        <div class="content">
+            <div class="title">
+                <div class="title-text">获取最大值</div>
+                <div class="title-help" onclick="showHelp()">?</div>
+            </div>
+            <div class="head">
+                <div class="head-score">分数<br><span id="score"></span></div>
+                <div class="head-level">本轮进度<br><span id="level"></span></div>
+                <div class="head-left">本次进度<br><span id="left"></span></div>
+            </div>
+            <div id="number">-32768</div>
+            <div class="button">
+                <div class="button-pass" onclick="pass()" style="background-color:#dc143c;">舍弃</div>
+                <div class="button-choose" onclick="choose()" style="background-color:#008000;">选择</div>
+                <div class="button-reset" onclick="reset()" style="background-color:#00bfff;">重置</div>
+            </div>
+            <div id="message"></div>
+            <div id="list"></div>
+        </div>
+        <div id="cover"></div>
+        <div id="help" class="window">
+            <div class="window-close" onclick="closeHelp()">X</div>
+            <div class="window-title">帮助</div>
+            <div class="window-content">
+                <p class="window-subtitle">游戏介绍</p>
+                <p class="window-text">游戏总共有20轮，每一轮会生成一个含20个随机正整数的序列。序列中的数字会依次显示在页面中间的土黄色方框中。你需要猜测当前显示数字是否是当前序列中的最大值。</p>
+                <p class="window-text">你可以点击下方的三个按钮进行操作:</p>
+                <p class="window-text"><span class="window-color" style="background-color:#dc143c;">舍弃</span> 如果你觉得当前数字不是序列中最大的，可以舍弃该数字，但之后无法再次选择该数字。若本次序列中所有数字均被舍弃，则本次判定为失败，不计分。</p>
+                <p class="window-text"><span class="window-color" style="background-color:#008000;">选择</span> 如果你觉得当前数字是序列中最大的，可以选择该数字，选对得5分，选错不扣分。</p>
+                <p class="window-text"><span class="window-color" style="background-color:#00bfff;">重置</span> 清空当前答题记录，从零开始。</p>
+                <p class="window-text">最下方的浅黄色区域会显示本次序列中已被你舍弃的数字，可辅助判断。</p>
+                <p class="window-text">最终获得60及以上的分数即可获得flag。</p>
+            </div>
+        </div>
+        <div id="msg" class="window">
+            <div class="window-close" onclick="closeMsg()">X</div>
+            <div class="window-title"></div>
+            <div class="window-content">
+                <p class="window-text"></p>
+                <p class="window-text"></p>
+                <div class="window-buttons">
+                    <div class="window-button" style="background-color:#00bfff" onclick="breset()">重新开始</div>
+                    <div class="window-button" style="background-color:#008000" onclick="submit()">提交成绩</div>
+                </div>
+            </div>
+        </div>
+        <script src="maximum.js"></script>
+    </body>
+</html>

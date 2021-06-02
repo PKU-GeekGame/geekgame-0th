@@ -1,0 +1,2 @@
+pycryptodome==3.10.1
+aioconsole==0.3.1

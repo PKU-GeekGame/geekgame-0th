@@ -1,0 +1,17 @@
+i	3776
+n_addr	G18
+s_addr	G21
+rn_addr	G20
+rs_addr	G19
+tpt	1552
+
+
+
+input:
+n	4982
+rn	4986
+s	5000
+rs	5400
+
+
+flag{W4SM_1S_s0_fun_but_1t5_subs3t_isN0T}

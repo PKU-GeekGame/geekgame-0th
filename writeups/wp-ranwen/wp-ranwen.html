@@ -1,0 +1,643 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>wp-ranwen</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ :root {--mermaid-font-zoom:1.25em ;} 
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><style>
+img {
+    max-height: 30em;
+    max-width: 80%;
+    box-shadow: 0 1px 0.5em rgba(0, 0, 0, .25);
+}
+body {
+    background-color: #f3f3f3;
+}
+#write {
+    max-width: 900px !important;
+    box-shadow: 0 0 2em rgba(0, 0, 0, .15);
+    background-color: white;
+}
+#write p {
+    margin: 1em 0;
+}
+</style><h1><a name="ranwens-writeups" class="md-header-anchor"></a><span>ranwen&#39;s Writeups</span></h1><p><span>非常荣幸能在这次比赛参与命题和平台维护工作。由于一开始我对各位参赛选手热情的错误估计，我这次出题宗旨就两个字：&quot;放水&quot;。看最终结果我这个水放的确实够多了。</span></p><p><span>本人在此次比赛中共出了四道题，分别为：2038 年的银行、人类行为研究实验、未来的机器、安全的密钥交换。正好涵盖了四个方向（雾）。本文含有这四道题的详细题解，以及一道我参与验题的题目（千年讲堂的方形轮子）的简要题解。</span></p><p>&nbsp;</p><h2><a name="2038-年的银行" class="md-header-anchor"></a><span>2038 年的银行</span></h2><p><span>经典有手就能玩！似乎还有不少人过了这道题没却签到的。</span></p><p><span>进入页面后，简单计算一下，发现只通过存钱是必赚不到钱的。考虑题目中的&quot;2038&quot;暗示了整数溢出，因此考虑构造溢出。</span></p><blockquote><p><span>容易观察，这题并不是 USTC Hackergame 的狗狗银行，从存款到贷款，利息全部使用的向下舍入。</span></p><p><span>不过当银行个数大于3个的时候，可以在每一个银行贷款19元，全部存到一个银行来达到靠存款借钱的目的。</span></p></blockquote><p><span>根据题目描述，简单试验一下，发现可以通过银行间倒钱的方法来提高借款额度（最高上限为2000000000）。具体的，将钱存在一个银行里头，并借款最大额度。之后把所有的钱存入另一家银行，以获得更大的额度。利用此方法，在两家银行间来回倒即可。</span></p><p><span>利用此方法，将借款额度提高到最大。之后在某一家银行借款，并不断通过买面包进入下一天的方式使欠款额溢出。简单操作发现，溢出后，若仍进入下一天，则欠款额会在 +INT_MAX和-INT_MAX间反复横跳。此时如果我们将贷出来的20亿分开存到银行里，那么存款利息就会稳步上升，而欠款相对稳定。等到总金额大于flag金额的时候，便可以分开将贷款还完，之后购买flag。</span></p><blockquote><p><span>细心的同学可以发现，这道题的int32其实是假的。本题的int32是大力用python模拟出来的（手动处理补码）。具体的，python在处理负数整除正数的时候，采用的是向下（负无穷）舍入，而常规的方法是向0舍入。这会使本题处理出来的数字会比直接写C处理出来的要相差1。</span></p></blockquote><p><span>信息安全是一个很广泛的概念。从业务逻辑到程序设计，均可成为攻击的方向。同时，因整型溢出而影响业务逻辑也是很常见的，应当重视其可能带来的后果。</span></p><h2><a name="人类行为研究实验" class="md-header-anchor"></a><span>人类行为研究实验</span></h2><p><span>经典有手就能玩！</span></p><p><span>该题最初是由两道题合并而来。我负责了原题的一部分，以及合并时适配。</span></p><p><span>关于套一层HTTP代理：</span></p><p><span>主要目的是让大家意识到采用公共HTTP代理可能会带来的风险。不知道有多少人被那个&quot;百京大学&quot;的logo逗乐了，不知道多少人真的被那个假IAAA唬住了（以及有多少人的浏览器会自动填充密码）。设置代理本身很简单，随意上网搜索即可。</span></p><p><span>以下wp分为两部分，分别针对两个任务的解法。</span></p><h3><a name="完成实验" class="md-header-anchor"></a><span>完成实验</span></h3><h4><a name="解法一" class="md-header-anchor"></a><span>解法一</span></h4><p><span>老老实实完成任务。</span><del><span>经典有手就能玩！</span></del></p><p><span>具体地，这对应一个数学上的问题。每次前37%无脑点跳过，之后如果在后边遇到比前37%都要大的数就选择停止。这有约37%的概率获得最大值。可以搜索&quot;最优停止理论&quot;得到相关证明，也可参考</span><a href='https://www.bilibili.com/video/BV1uJ411D7AW'><span>单身狗速进！如何科学有效地脱单？_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</span></a><span>。</span></p><p><span>当然，这个做法在本题其实不是最优的。具体的：最优停止理论是在仅能进行比较的情况下适用的理论。该题中，数字是是有界的（多开几把观察以下或者翻源码均可发现）。而这种情况下，该理论并不是最优的。</span><del><span>严格最优的我也不会，我个人感觉策略不是简单的。</span></del><span>事实上，可以简单地估测一下数字范围，之后写一个算法计算&quot;后边所有数字都比自己小&quot;的概率，若大于0.5就选择，则可以取得约50%的胜率。</span></p><p><span>完成游戏后，会自动弹出第一个flag，同时有一个&quot;上传成绩&quot;的按钮，对应第二个flag的页面。</span></p><h4><a name="解法二" class="md-header-anchor"></a><span>解法二</span></h4><p><span>当然是直接看代码。</span></p><p><span>点开网页源代码，发现核心部分都在maximum.js中。这份代码是被minify过的，随便找个格式化工具即可。</span></p><p><span>仔细审计源代码</span><del><span>（搜索&quot;flag&quot;字符串）</span></del><span>，发现获取flag部分在get(won)函数中。简单阅读一下，发现具体地flag是在请求一个target变量的URL。直接把相关语句复制到浏览器审查元素的console中，可直接进行计算得到结果&quot;/flag?k=cyclononane&quot;。从这个结果我们可以感受到：Javascript is awesome!。注意需要在该URL后补上token。之后手动访问URL即可得到第一个flag。</span></p><p><span>再次审计源码，发现在点击&quot;上传成绩&quot;的时候会调用submit函数，具体地，会跳转到&quot;</span><a href='http://iaaa.pku.edu.cn/' target='_blank' class='url'>http://iaaa.pku.edu.cn/</a><span>&quot;，进入第二个flag的界面。</span></p><h3><a name="上传成绩" class="md-header-anchor"></a><span>上传成绩</span></h3><p><span>该任务造了一个假的IAAA界面。随便输入学号密码后，发现无论输入什么，都会跳转到游戏界面的&quot;/callback?jwt=X&amp;token=T&quot;，而页面要求你的身份应为teacher。因此猜测，这题的考点主要是这个&quot;jwt&quot;参数。</span></p><p><span>搜索jwt，发现其是一种安全传输信息的方式，同时可得到一个网站 jwt.io ，提供了jwt的解码和签名认证。</span></p><p><span>将jwt后的参数复制进去，发现其数据正好为{&quot;identity&quot;:&quot;student&quot;}，显然，需要我们把这个&quot;student&quot;替换为&quot;teacher&quot;。</span></p><p><span>剩下的就是jwt的签名部分了。通过题面描述&quot;他没有研究并设置任何的可配置参数&quot;可猜测，他没有设置secret。当然，此处可以随便搜索一个jwt-secret爆破程序，得到secret为空。直接在jwt.io中将secret修改为空，把结果复制下来，替换到callback页面的jwt参数，即可拿到flag。</span></p><blockquote><p><span>当然，这题使用HTTP代理然后让选手访问假IAAA的操作确实是存在一定安全问题的。我本人在出题前已经通过修改源代码，检查各类设置以及真IAAA的一些参数来避免产生安全问题。当然，对于发现我前端不会传输密码进而手动修改请求，加入密码的同学，我也无能为力了。</span></p></blockquote><h2><a name="未来的机器" class="md-header-anchor"></a><span>未来的机器</span></h2><p><span>经典有手也不一定能玩！</span></p><p><span>本题有多种解法，有些方法可能需要一定的观察与运气。当然，大部分解法都要理解本题的汇编语言和模拟器。</span></p><p><span>我在出题的时候，本意是想出一个逆向，但核心点又不在逆向本身的题，同时我个人很喜欢WASM，于是就有了这道题。真正从头读汇编实际上是最不推荐的做法。</span></p><h3><a name="关于此汇编语言" class="md-header-anchor"></a><span>关于此汇编语言</span></h3><p><span>有相关经验的同学应该可以很容易发现，这种汇编语言就是最近比较火的 WebAssembly(WASM) 语言。从其名字可以看出，这种语言诞生就是为了让一些更底层的程序跑在浏览器上，解决某些JS难以解决的问题，同时增强程序的可移植性。</span></p><p><span>当然，即使你没有相关经验，可以直接查到这是WASM。具体地，稍微观察一下文本，里面有一行很特殊: </span><code>call $env.abortStackOverflow</code><span>，是使用了call的唯一一条语句。将这条语句放在搜索引擎搜索（如果要使用百度就必须加上引号），可以观察到这份代码是由 Emscripten 生成的 WASM 代码。这份代码其实是可以进行反编译的，只不过需要进行少量的工作才能使其直接喂入反编译器。后续有相关解法。</span></p><p><span>关于模拟器和语言的介绍：</span></p><p><span>从模拟器代码，或WASM的介绍可以了解到，WASM基于堆栈结构机器(stack machine)的语言。具体地，它没有具体的显式寄存器，而是维护了一个栈，所有的操作都从这个栈内进行临时数据的存储。其同时具有单独的内存memory，可提供按字节的随机访问。还具有一个存储全局变量的global（例如C语言中extern，会将该变量在内存的地址存入global）。拥有一个保存局部变量的local表。</span></p><p><span>同时，WASM的跳转是基于block的，而不同于常见的x86 ASM的jmp。</span></p><p><span>只考虑仅在本题出现的语句（不含call）。描述可能并不标准。</span></p><ul><li><span>global.get/set: 取值或赋值全局变量，后边的标签即全局变量存取的位置。将获取的值存到栈顶或从栈取出要保存的值。</span></li><li><span>local.get/set: 类似上条，但是作用域是局部变量。在本题中基本无差别。</span></li><li><span>return: 退出函数。栈顶作为返回值。</span></li><li><span>br: 跳转到标签。标签通常为loop的开头或block的结尾。</span></li><li><span>loop - end: 定义循环标签。其中loop所在位置为br跳转位置。注意其本身并不提供循环功能，在执行到对应的end后仍会向下执行下一条语句。</span></li><li><span>block - end: 定义块标签。其中end所在位置位br跳转位置。</span></li><li><span>if - else - end: 条件跳转。从栈顶取出一个变量，如果为真则跳转到if块内；反之跳转到end或else（如存在）。注意这个是真正的块结构，即if块结束后会直接跳转到end而不是继续执行else的内容。</span></li><li><span>i32.store: 从栈顶分别取出值和位置，将值作为int32（4bytes）存储到memory对应位置的4个字节。</span></li><li><span>i32.load: 从栈顶取出位置，从memory对应位置的4个字节取出数据，并作为int32解析放入栈顶。</span></li><li><span>i32.const: 定义int32常量并存入栈顶。</span></li><li><span>i32.*: 从栈顶中取出一些元素，做一些运算，并将运算结果存入栈顶。具体操作名、参量数和运算可以参照模拟器中的funcTable变量。</span></li></ul><p><span>以下开始介绍这题的解法。</span></p><h3><a name="解法一-n77" class="md-header-anchor"></a><span>解法一</span></h3><p><span>阅读部分WASM代码/直接观察，猜测大概流程，后进行暴力破解。该方法是期望做法之一。</span></p><p><span>具体地，由于模拟器中关注了WASM的return值，可以从asm文件中找到所有return的位置（共5处）。</span></p><p><span>分析一下逻辑，以648行的为例：</span></p><p><img src="img1.png" referrerpolicy="no-referrer" alt="img1"></p><p><span>简单观察一下，这一段if内将1存到了var0，又取出存到了var14，之后提取var14的值后return。即return 1。正好对应模拟器中RIGHT逻辑。</span></p><p><span>再往上看几行逻辑，跳转到这个分支需要</span><code>var115==28</code><span>。因此全局搜索var115。发现其仅在第574行被设置为了28。</span></p><p><img src="img2.png" referrerpolicy="no-referrer" alt="img2"></p><p><span>再次分析，发现触发这个分支需要</span><code>var109&gt;var110</code><span>。再往上观察，发现var110正好是global18地址（4982）在mem中对应的值，即我们在模拟器中置入的密文串长度。结合外层有个循环，我们可以合理猜测这段代码的目的：将输入字符串加密后与置入的密文进行逐字节对比。如果所有的字符都一样，那么就return 1。以下对这块循环的进一步分析可印证此结论。</span></p><p><span>显然，var109对应mem3776。因此在此循环中跟踪3776的变化。简单搜索一下，发现其仅在第620行被store访问了。</span></p><p><img src="img3.png" referrerpolicy="no-referrer" alt="img3"></p><p><span>简单分析一下，这段代码实际执行的就是</span><code>mem3776+=1</code><span>，能印证猜想。以下把mem3776称为i。</span></p><p><span>再看循环体部分。</span></p><p><img src="img4.png" referrerpolicy="no-referrer" alt="img4"></p><p><span>这段代码中共两次使用了i。第一次计算了</span><code>var5=4*i+1552</code><span>，并取var5地址的mem值，到var6。第二次计算了</span><code>var8=4*i+global19</code><span>，并取var8地址的mem值，到var9。后来判断了var6和var9是否相等：如果不等，则跳出循环并return 0；否则继续循环。再观察以下这两个地址，global19也是我们在模拟器中置入的，为5400。而5400就是模拟器中出现的密文的地址。这完全印证了我们的猜想。</span></p><p><span>那么之后当然是观察程序退出后，位于</span><code>4*i+1552</code><span>地址的数组的内容了。给程序喂两个不同的输入，发现这个位置的内容确实是不同的。如果你喂的输入只有一个位置不同，那么这个地址的内容也恰好有一个位置不同，虽然相异的位置并不相同。这让我们猜测这题是一个替换密码后进行了位置的打乱。无论如何，既然输入的一位只和输出的一位相关，那么就可以采用暴力fuzz的方法。具体地，按位枚举这个位置的字符，如果1552地址和5400地址的数组相同个数多了1，那么说明我们刚刚的枚举是正确的。这个方法在出题文件中有提供源码。如果你认为这题是单纯的字母表替换密码，那么就会做错（可查看出题文件的原始cpp源码得到解答）。</span></p><p><span>当然，这块我们也可以大力使用分支统计（统计不同if被走入的次数）。由于我们提供了模拟器，这个功能很好实现。在每字符位都要枚举一遍字符，如果这个if被走入的次数多了1，那么说明我们找到了密文这个位置所对应的明文位置和值。</span></p><h3><a name="解法二-n94" class="md-header-anchor"></a><span>解法二</span></h3><p><span>手写翻译器。将翻译后的源码喂给gcc优化开满然后编译，之后使用ida分析。该方法是期望方法之一。</span></p><p><span>两位验题人均采用这个方法，具体可参照xmcp的wp。</span></p><p><span>该方法主要任务栏在写翻译器上。当然，任务量也不是特别大。</span></p><h3><a name="解法三" class="md-header-anchor"></a><span>解法三</span></h3><p><span>使用WASM组织官方提供的</span><a href='https://github.com/WebAssembly/wabt'><span>反编译器</span></a><span>。该方法是期望方法之一。</span></p><p><span>具体流程需要先将本题的文本文件进行少许修改，变为可被解析的WAT，WASM文本格式。之后将WAT转换为WASM，再转回C。</span></p><p><span>随便找一个WASM观察（可用</span><a href='https://webassembly.github.io/wabt/demo/wat2wasm/'><span>wat2wasm demo (webassembly.github.io)</span></a><span>中的示例，不过更建议自己写一个简单的代码然后用 Emscripten编译），结合模拟器的具体实现，发现我们需要补充三部分：module头、global变量声明、函数声明。同时调用abortStackOverflow部分可以直接删去。修改后的文件在出题文件中。</span></p><p><span>之后分别调用wat2wasm，wasm2c，即可得到一份非常丑的C语言代码（行数和原始WASM差不多的逐行翻译）。之后使用传统艺能：编译后开IDA。注意编译时不能链接（或者你手动补充定义使其可以连接），且可能需要复制手动wasm-rt.h来编译。</span></p><p><span>当然由于wasm2c使用了未经简化的内存模型等原因，编译出来的代码会略长（300多行，长于解法二的100多行）。但是这份代码仍然可读性很高。同时也可以通过观察这份代码来猜测算法，而使用解法一的fuzz方法。</span></p><h3><a name="解法四" class="md-header-anchor"></a><span>解法四</span></h3><p><span>肉眼看WASM，分析出每个part的具体作用。该方法</span><strong><span>不</span></strong><span>是期望方法之一。</span></p><p><span>该方法工作量大，但似乎不少选手都使用的这个方法</span><del><span>，因此我还被某些选手怒斥</span></del><span>。</span></p><p><span>在此不做分析了。感兴趣的同学可以自己试试。</span></p><p>&nbsp;</p><blockquote><p><span>这题提供的WASM模拟器也同样不是完全的。其只支持部分WASM指令，同时部分指令实现也并不标准。</span></p><p><span>例如本模拟器的内存并不是基于字节访问存储的，而是直接大力存的int。本题所有变量都是用的int，因此不会出现差异。</span></p><p><span>例如本题的取模，对负数处理也不标准，同时对于比较也是按照unsigned比较的（_s后缀表示使用signed模式）。当然，这些问题在本题都不影响。希望不会有选手是发现了这个差别而以为这题有坑，进而变为肉眼看代码。</span></p><p><span>关于 abortStackOverflow 函数，是用于处理爆栈的情况的。观察生成的原始WASM文件也可雪人这一点。本题中可以直接删去，不影响本题的执行。</span></p></blockquote><h2><a name="安全的密钥交换" class="md-header-anchor"></a><span>安全的密钥交换</span></h2><p><del><span>经典有电脑就能玩！</span></del><span>纯粹的读代码题（某位选手的评价）!</span></p><p><span>出这题的目的也仍是送分。题目中的密钥交换算法就是Diffie-Hellman密钥交换算法。值得注意的是，该算法只能防窃听，并不能防中间人攻击。本题就是对这个算法进行简单的中间人攻击。DH密钥交换在现实场景中使用时，一方会先发送自己的证书，并用证书发送自己签名后的随机数。该方法是相对安全的。</span></p><p><span>关于本题如何进行中间人攻击（主要针对flag2）：</span></p><p><span>研究一下算法，发现此算法完全没有身份验证的部分。即：我可以通过向A假装我是B，向B假装我是A，进而套取双方的信息。那么中间人攻击的方法就很显然了：自己生成一个随机数作为DH算法的指数，将幂的结果分别发送给AB，之后利用AB传的信息再次计算，得到公共密钥。有公共密钥后，就可以简单的解密cert和flag了。</span></p><p><span>注意一下，flag1要求最终协商的key小于2**512，那么我将本地生成的随机指数钦定成0就可以保证最终协商的key一定是1了（当然也可以直接发送0，进而key都是0）。</span></p><p><span>具体实现可以通过修改server代码实现，也可以手动交互。</span></p><p><span>关于flag2的设置：在密码学中，一个很重要的问题是，如何保证对方发送的数据是可信的（对方的随机数据有没有可能是有陷门的），这也是子任务&quot;安全的密钥&quot;名字来源。在出完这题flag2后，我才意识到这种情况，因此添加了flag1。</span></p><p><span>细心的同学已经发现了代码中有一处保证了双方生成的指数一定是偶数。这是为了避免当指数为奇数时，直接向双方发送-1，进而可以得到key一定是-1。通过flag1的方法获得了flag2。这题的P也保证了(P-1)/2一定是质数，因此避免了向双方发送k次剩余的方法而有概率获得flag2。当然，我个人感觉想到这一点应该比做出这一题要难。</span></p><blockquote><p><span>这题在最后查看选手wp的时候才发现，我的cert_verify写假了。具体地，该函数返回了验证结果的正确与否，但外部server并没有验证这个cert是否正确。因此这个part完全可以混掉（但必须要发送一个aes可以正确解密的串）。</span></p></blockquote><h2><a name="千年讲堂的方形轮子" class="md-header-anchor"></a><span>千年讲堂的方形轮子</span></h2><p><del><span>经典有搜索引擎和脑子就能玩！</span></del></p><p><span>详情可以参考xmcp的wp。</span></p><p><span>第一题CBC是常规的 Padding Oracle Attack。具体方法可以上网搜索，有不少讲解的文章。直接搜索&quot;aes cbc 漏洞&quot;、&quot;aes cbc attack&quot;等词就可以直接找到相关介绍（用某度的可能需要多翻几页）。我本人手动写了一个脚本来完成这个任务。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">requests</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">time</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">re</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#from Crypto.Cipher import AES</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">base64</span> <span class="cm-keyword">import</span> <span class="cm-variable">b64decode</span>,<span class="cm-variable">b64encode</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">xorbyte</span>(<span class="cm-variable">a</span>,<span class="cm-variable">b</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">assert</span> <span class="cm-builtin">len</span>(<span class="cm-variable">a</span>)==<span class="cm-builtin">len</span>(<span class="cm-variable">b</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-builtin">bytes</span>([<span class="cm-variable">a</span>[<span class="cm-variable">i</span>]<span class="cm-operator">^</span><span class="cm-variable">b</span>[<span class="cm-variable">i</span>] <span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-builtin">len</span>(<span class="cm-variable">b</span>))])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#ptx="w7U+6e2kDDM8/cmZGuMWT3duMJKJsuA4YGJG07eg5B9soGR8ZlAnn2CZKkGv66JVf8ROqBy1vFw7PLtkpvprt2cf21Ft/fK7TYNYuTiW00B1PPAIMqj+839Sd7sAfgqAdqn5hWpHjsw3k0S8mcFShQ=="</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ptx</span>=<span class="cm-string">"AlYiySq5VF4XKtgB8mPrbX/k1yQMhggqFmUV031TUi1B+bIBsKlP+Nl4y1+o1VBd3Wd7cKTvS/Wqngj0wtPJA9ddgO8nwegTtROfQ2BvZZvA5mSX5/9ExqKrXFt9J+AuDJ3htS6tMaBpJKOciYyHVQ=="</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">orb</span>=<span class="cm-variable">b64decode</span>(<span class="cm-variable">ptx</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">N</span>=<span class="cm-builtin">len</span>(<span class="cm-variable">orb</span>)<span class="cm-operator">-</span><span class="cm-number">16</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">N</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jb</span>=<span class="cm-variable">requests</span>.<span class="cm-property">Session</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jb</span>.<span class="cm-property">headers</span>.<span class="cm-property">update</span>({<span class="cm-string">'User-Agent'</span>: <span class="cm-string">'ranwen/114514'</span>})</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">check</span>(<span class="cm-variable">ttt</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">uu</span>=<span class="cm-variable">jb</span>.<span class="cm-property">get</span>(<span class="cm-string">"http://prob12.geekgame.pku.edu.cn/cbc/query-ticket"</span>,<span class="cm-variable">params</span>={<span class="cm-string">'ticket'</span>:<span class="cm-variable">b64encode</span>(<span class="cm-variable">ttt</span>)})</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-string">'解密购票凭证失败'</span> <span class="cm-keyword">in</span> <span class="cm-variable">uu</span>.<span class="cm-property">text</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">False</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">True</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ogt</span>=[<span class="cm-string">b""</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">nxt</span>=[]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">N</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">hvlen</span>=<span class="cm-builtin">len</span>(<span class="cm-variable">ogt</span>[<span class="cm-number">0</span>])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ssb</span>=<span class="cm-variable">hvlen</span><span class="cm-operator">//</span><span class="cm-number">16</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ssl</span>=<span class="cm-variable">hvlen</span><span class="cm-operator">%</span><span class="cm-number">16</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">ns</span> <span class="cm-keyword">in</span> <span class="cm-variable">ogt</span>:</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">for</span> <span class="cm-variable">j</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-number">256</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">bbs</span>=<span class="cm-string">b'\x00'</span><span class="cm-operator">*</span>(<span class="cm-variable">N</span><span class="cm-operator">-</span><span class="cm-variable">hvlen</span><span class="cm-operator">-</span><span class="cm-number">1</span>)<span class="cm-operator">+</span><span class="cm-builtin">bytes</span>([<span class="cm-variable">j</span><span class="cm-operator">^</span>(<span class="cm-variable">ssl</span><span class="cm-operator">+</span><span class="cm-number">1</span>)])<span class="cm-operator">+</span><span class="cm-variable">xorbyte</span>(<span class="cm-builtin">bytes</span>([<span class="cm-variable">ssl</span><span class="cm-operator">+</span><span class="cm-number">1</span>]<span class="cm-operator">*</span><span class="cm-variable">ssl</span>),<span class="cm-variable">ns</span>[:<span class="cm-variable">ssl</span>])<span class="cm-operator">+</span><span class="cm-string">b"\x00"</span><span class="cm-operator">*</span><span class="cm-number">16</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">toque</span>=<span class="cm-variable">xorbyte</span>(<span class="cm-variable">orb</span>[:(<span class="cm-variable">N</span><span class="cm-operator">-</span><span class="cm-variable">hvlen</span><span class="cm-operator">+</span><span class="cm-variable">ssl</span><span class="cm-operator">+</span><span class="cm-number">16</span>)],<span class="cm-variable">bbs</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-comment">#print(toque)</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> <span class="cm-variable">check</span>(<span class="cm-variable">toque</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">nxt</span>.<span class="cm-property">append</span>(<span class="cm-builtin">bytes</span>([<span class="cm-variable">j</span>])<span class="cm-operator">+</span><span class="cm-variable">ns</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">ogt</span>=<span class="cm-variable">nxt</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">nxt</span>=[]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">print</span>(<span class="cm-variable">ogt</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#[b'stuid=1919810000|name=ranwen|flag=False|code=80zauayhdluvr2rg|timestamp=1620998879\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e\x0e']</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#b'stuid=1919810000|name=ranwenranwenranw|flag=False|code=3aifrt800usgu6yp|timestamp=1621002350\x04\x04\x04\x04'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 1322px;"></div><div class="CodeMirror-gutters" style="display: none; height: 1322px;"></div></div></div></pre><p><span>该脚本可以拿到aes的明文。之后就是如何构造新密文了。</span></p><p><span>可以通过交互式的方法来构造任意密文。不过交互实际上是不需要的。利用CBC字节翻转攻击即可。</span></p><p><span>观察下面两个串</span></p><p><code>&#39;stuid=1919810000|name=ranwenranwenranw|flag=False|code=3aifrt800usgu6yp|timestamp=1621002350\x04\x04\x04\x04&#39;</code></p><p><code>&#39;stuid=1919810000|name=ranwenranwenranwa|flag=True|code=3aifrt800usgu6yp|timestamp=1621002350\x04\x04\x04\x04&#39;</code></p><p><span>简单数一下，只有几个字符不同，且这几个字符对应的前边位置都是name部分。因此直接利用字节翻转攻击。即可改变</span><code>flag=True</code><span>部分。这同时会改变前边的name，不过这并没有什么影响。直接构造脚本如下。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">requests</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">time</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">re</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#from Crypto.Cipher import AES</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">base64</span> <span class="cm-keyword">import</span> <span class="cm-variable">b64decode</span>,<span class="cm-variable">b64encode</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">xorbyte</span>(<span class="cm-variable">a</span>,<span class="cm-variable">b</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">assert</span> <span class="cm-builtin">len</span>(<span class="cm-variable">a</span>)==<span class="cm-builtin">len</span>(<span class="cm-variable">b</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-builtin">bytes</span>([<span class="cm-variable">a</span>[<span class="cm-variable">i</span>]<span class="cm-operator">^</span><span class="cm-variable">b</span>[<span class="cm-variable">i</span>] <span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-builtin">len</span>(<span class="cm-variable">b</span>))])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">pla</span>=<span class="cm-string">b'stuid=1919810000|name=ranwenranwenranw|flag=False|code=3aifrt800usgu6yp|timestamp=1621002350\x04\x04\x04\x04'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plb</span>=<span class="cm-string">b'stuid=1919810000|name=ranwenranwenranwa|flag=True|code=3aifrt800usgu6yp|timestamp=1621002350\x04\x04\x04\x04'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ptx</span>=<span class="cm-string">"AlYiySq5VF4XKtgB8mPrbX/k1yQMhggqFmUV031TUi1B+bIBsKlP+Nl4y1+o1VBd3Wd7cKTvS/Wqngj0wtPJA9ddgO8nwegTtROfQ2BvZZvA5mSX5/9ExqKrXFt9J+AuDJ3htS6tMaBpJKOciYyHVQ=="</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">orb</span>=<span class="cm-variable">b64decode</span>(<span class="cm-variable">ptx</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">chg</span>=<span class="cm-variable">xorbyte</span>(<span class="cm-variable">pla</span>,<span class="cm-variable">plb</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">uub</span>=<span class="cm-variable">xorbyte</span>(<span class="cm-variable">orb</span>,<span class="cm-variable">chg</span><span class="cm-operator">+</span><span class="cm-string">b"\x00"</span><span class="cm-operator">*</span>(<span class="cm-builtin">len</span>(<span class="cm-variable">orb</span>)<span class="cm-operator">-</span><span class="cm-builtin">len</span>(<span class="cm-variable">chg</span>)))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">b64encode</span>(<span class="cm-variable">uub</span>))</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 582px;"></div><div class="CodeMirror-gutters" style="display: none; height: 582px;"></div></div></div></pre><p><span>拿到明文格式了，就可以来做ECB部分了。</span></p><p><span>一个同样的方法是利用xmcp wp的思路：构造一个完整的可自定义空块，之后便可以任意替换了。</span></p><p><span>不同于xmcp中使用emoji绕过长度的方法（原题是汉字，emoji是我验题时想到的，因此改了长度限制），这题利用学号判定也可以。具体地，Unicode字符&#39;\u0660&#39;也会被python认定为数字字符（当然不止这种字符），而其编码长度为2。这给我们提供了最多10的伸缩量，正好可以将name空出一个完整block，进而运行查表。脚本如下。</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="python" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="python"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">requests</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">json</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">time</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">import</span> <span class="cm-variable">re</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#from Crypto.Cipher import AES</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">from</span> <span class="cm-variable">base64</span> <span class="cm-keyword">import</span> <span class="cm-variable">b64decode</span>,<span class="cm-variable">b64encode</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">xorbyte</span>(<span class="cm-variable">a</span>,<span class="cm-variable">b</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">assert</span> <span class="cm-builtin">len</span>(<span class="cm-variable">a</span>)==<span class="cm-builtin">len</span>(<span class="cm-variable">b</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-builtin">bytes</span>([<span class="cm-variable">a</span>[<span class="cm-variable">i</span>]<span class="cm-operator">^</span><span class="cm-variable">b</span>[<span class="cm-variable">i</span>] <span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-builtin">len</span>(<span class="cm-variable">b</span>))])</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jb</span>=<span class="cm-variable">requests</span>.<span class="cm-property">Session</span>()</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">jb</span>.<span class="cm-property">headers</span>.<span class="cm-property">update</span>({<span class="cm-string">'User-Agent'</span>: <span class="cm-string">'ranwen/114514'</span>})</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#stuid:"\u0660\u0660\u0660\u0660\u0660\u0660\u0660\u0660\u0660\u0660"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">def</span> <span class="cm-def">getres</span>(<span class="cm-variable">bls</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">assert</span> <span class="cm-builtin">len</span>(<span class="cm-variable">bls</span>)==<span class="cm-number">16</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">uu</span>=<span class="cm-variable">jb</span>.<span class="cm-property">get</span>(<span class="cm-string">"http://prob12.geekgame.pku.edu.cn/ecb/gen-ticket"</span>,<span class="cm-variable">params</span>={<span class="cm-string">"stuid"</span>:<span class="cm-string">"\u0660\u0660\u0660\u0660\u0660\u0660\u0660\u0660\u0660\u0660"</span>,<span class="cm-string">"name"</span>:<span class="cm-variable">bls</span>})</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">xx</span>=<span class="cm-variable">uu</span>.<span class="cm-property">text</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">xx</span>=<span class="cm-variable">xx</span>[<span class="cm-variable">xx</span>.<span class="cm-property">find</span>(<span class="cm-string">"&lt;br&gt;&lt;p&gt;"</span>)<span class="cm-operator">+</span><span class="cm-builtin">len</span>(<span class="cm-string">"&lt;br&gt;&lt;p&gt;"</span>):<span class="cm-variable">xx</span>.<span class="cm-property">find</span>(<span class="cm-string">"&lt;/p&gt;&lt;br&gt;&lt;p&gt;&lt;a"</span>)]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-builtin">print</span>(<span class="cm-variable">xx</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-variable">b64decode</span>(<span class="cm-variable">xx</span>)[<span class="cm-number">32</span>:<span class="cm-number">48</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">plb</span>=<span class="cm-string">b'stuid=1919810000|name=ranwenranwenranwa|flag=True|code=3aifrt800usgu6yp|timestamp=1621002350\x04\x04\x04\x04'</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">N</span>=<span class="cm-builtin">len</span>(<span class="cm-variable">plb</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">nrs</span>=<span class="cm-string">b""</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">for</span> <span class="cm-variable">i</span> <span class="cm-keyword">in</span> <span class="cm-builtin">range</span>(<span class="cm-variable">N</span><span class="cm-operator">//</span><span class="cm-number">16</span>):</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">nbb</span>=<span class="cm-variable">plb</span>[<span class="cm-variable">i</span><span class="cm-operator">*</span><span class="cm-number">16</span>:<span class="cm-variable">i</span><span class="cm-operator">*</span><span class="cm-number">16</span><span class="cm-operator">+</span><span class="cm-number">16</span>]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">gx</span>=<span class="cm-variable">getres</span>(<span class="cm-variable">nbb</span>)</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-variable">nrs</span>=<span class="cm-variable">nrs</span><span class="cm-operator">+</span><span class="cm-variable">gx</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">print</span>(<span class="cm-variable">b64encode</span>(<span class="cm-variable">nrs</span>))</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 986px;"></div><div class="CodeMirror-gutters" style="display: none; height: 986px;"></div></div></div></pre><p><span>结论就是 Unicode is Awesome!</span></p><p><span>当然，这题也有一些其它使用ECB特性的解法。本篇只是一个给这题提过改进建议的人的角度而写的，不再赘述这类解法。</span></p></div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>千年讲堂网上购票系统</title>
+</head>
+<body>
+    <p>解密得到您的购票信息如下</p>
+    <br>
+    <p><b>姓名：</b> {{ticket.name}}</p>
+    <p><b>学号：</b> {{ticket.stuid}}</p>
+    <p><b>需要礼品：</b> {{ticket.flag}}</p>
+    <p><b>礼品兑换码：</b> {{ticket.code | mosaic}}</p>
+    <p><b>时间戳：</b> {{ticket.timestamp}}</p>
+    <br>
+    <p><a href="/">返回</a></p>
+</body>
+</html>

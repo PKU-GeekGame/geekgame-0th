@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Advanced Encrypting System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <br>
+        <div class="jumbotron">
+            <h1><b>千年讲堂</b> 网上购票系统</h1>
+            <br>
+            <p>我们使用极为先进的 AES 256 算法生成购票凭证，让您用得放心。</p>
+            <p>系统试运行期间您可以免费购票，并获得精美礼品一份。</p>
+        </div>
+        
+        <br>
+        <div class="page-header">
+            <h1>CBC 模式（Flag 1）：</h1>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">购票</div>
+            <div class="panel-body">
+                <form action="/cbc/gen-ticket" method="get" class="form-inline">
+                    <input type="text" name="name" class="form-control" placeholder="姓名" required minlength="1" maxlength="19">
+                    <input type="text" name="stuid" class="form-control" placeholder="学号" required pattern="^\d{10}$" title="输入10位学号">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="flag"> 需要礼品
+                    </label>
+                    &nbsp;<button class="btn btn-primary" type="submit">购票</button>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">检票</div>
+            <div class="panel-body">
+                <form action="/cbc/query-ticket" method="get" class="form-inline">
+                    <input type="text" name="ticket" class="form-control" placeholder="购票凭证" required>
+                    &nbsp;<button class="btn btn-primary" type="submit">检票</button>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">领取礼品</div>
+            <div class="panel-body">
+                <form action="/cbc/getflag" method="get" class="form-inline">
+                    <input type="text" name="ticket" class="form-control" placeholder="购票凭证" required>
+                    <input type="text" name="redeem_code" class="form-control" placeholder="礼品兑换码" required>
+                    <input type="text" name="token" class="form-control" placeholder="Token" required>
+                    &nbsp;<button class="btn btn-primary" type="submit">领取</button>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        <div class="page-header">
+            <h1>ECB 模式（Flag 2）：</h1>
+        </div>
+        
+        <div class="panel panel-default">
+            <div class="panel-heading">购票</div>
+            <div class="panel-body">
+                <form action="/ecb/gen-ticket" method="get" class="form-inline">
+                    <input type="text" name="name" class="form-control" placeholder="姓名" required minlength="1" maxlength="19">
+                    <input type="text" name="stuid" class="form-control" placeholder="学号" required pattern="^\d{10}$" title="输入10位学号">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="flag"> 需要礼品
+                    </label>
+                    &nbsp;<button class="btn btn-primary" type="submit">购票</button>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">检票</div>
+            <div class="panel-body">
+                <form action="/ecb/query-ticket" method="get" class="form-inline">
+                    <input type="text" name="ticket" class="form-control" placeholder="购票凭证" required>
+                    &nbsp;<button class="btn btn-primary" type="submit">检票</button>
+                </form>
+            </div>
+        </div>
+        
+        <br>
+        <div class="panel panel-default">
+            <div class="panel-heading">领取礼品</div>
+            <div class="panel-body">
+                <form action="/ecb/getflag" method="get" class="form-inline">
+                    <input type="text" name="ticket" class="form-control" placeholder="购票凭证" required>
+                    <input type="text" name="redeem_code" class="form-control" placeholder="礼品兑换码" required>
+                    <input type="text" name="token" class="form-control" placeholder="Token" required>
+                    &nbsp;<button class="btn btn-primary" type="submit">领取</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

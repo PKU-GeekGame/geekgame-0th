@@ -1,0 +1,14 @@
+service store
+{
+	type			= UNLISTED
+	socket_type		= stream
+	protocol		= tcp
+	wait			= no
+	user			= root
+	server			= /usr/bin/python3
+	server_args		= /path/rop.py
+	log_on_failure	+=	USERID
+	log_type		= FILE /var/log/rop.log
+	port			= 3000
+	disable			= no
+}

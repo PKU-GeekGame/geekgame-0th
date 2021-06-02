@@ -1,0 +1,652 @@
+    global.get $global16
+    local.set $var116
+    global.get $global16
+    i32.const 16
+    i32.add
+    global.set $global16
+    global.get $global16
+    global.get $global17
+    i32.ge_s
+    if
+      i32.const 16
+      call $env.abortStackOverflow
+    end
+    i32.const 0
+    local.set $var114
+    i32.const 0
+    local.set $var113
+    i32.const 0
+    local.set $var111
+    i32.const 0
+    local.set $var0
+    i32.const 114514
+    local.set $var111
+    i32.const 3776
+    i32.const 0
+    i32.store
+    loop $label1
+      block $label0
+        i32.const 3776
+        i32.load
+        local.set $var1
+        local.get $var1
+        i32.const 96
+        i32.lt_s
+        local.set $var23
+        local.get $var23
+        i32.eqz
+        if
+          br $label0
+        end
+        i32.const 3776
+        i32.load
+        local.set $var34
+        i32.const 3776
+        i32.load
+        local.set $var45
+        i32.const 1952
+        local.get $var45
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var56
+        local.get $var56
+        local.get $var34
+        i32.store
+        i32.const 3776
+        i32.load
+        local.set $var67
+        local.get $var67
+        i32.const 1
+        i32.add
+        local.set $var78
+        i32.const 3776
+        local.get $var78
+        i32.store
+        br $label1
+      end $label0
+    end $label1
+    i32.const 3776
+    i32.const 1
+    i32.store
+    loop $label3
+      block $label2
+        i32.const 3776
+        i32.load
+        local.set $var89
+        local.get $var89
+        i32.const 96
+        i32.lt_s
+        local.set $var100
+        local.get $var100
+        i32.eqz
+        if
+          br $label2
+        end
+        local.get $var111
+        local.set $var2
+        local.get $var2
+        i32.const 1919
+        i32.mul
+        local.set $var13
+        local.get $var13
+        i32.const 7
+        i32.add
+        local.set $var15
+        local.get $var15
+        i32.const 334363
+        i32.rem_s
+        i32.const -1
+        i32.and
+        local.set $var16
+        local.get $var16
+        local.set $var111
+        local.get $var111
+        local.set $var17
+        i32.const 3776
+        i32.load
+        local.set $var18
+        local.get $var17
+        local.get $var18
+        i32.rem_s
+        i32.const -1
+        i32.and
+        local.set $var19
+        local.get $var19
+        local.set $var113
+        local.get $var113
+        local.set $var20
+        i32.const 1952
+        local.get $var20
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var21
+        local.get $var21
+        i32.load
+        local.set $var22
+        local.get $var22
+        local.set $var114
+        i32.const 3776
+        i32.load
+        local.set $var24
+        i32.const 1952
+        local.get $var24
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var25
+        local.get $var25
+        i32.load
+        local.set $var26
+        local.get $var113
+        local.set $var27
+        i32.const 1952
+        local.get $var27
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var28
+        local.get $var28
+        local.get $var26
+        i32.store
+        local.get $var114
+        local.set $var29
+        i32.const 3776
+        i32.load
+        local.set $var30
+        i32.const 1952
+        local.get $var30
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var31
+        local.get $var31
+        local.get $var29
+        i32.store
+        i32.const 3776
+        i32.load
+        local.set $var32
+        local.get $var32
+        i32.const 1
+        i32.add
+        local.set $var33
+        i32.const 3776
+        local.get $var33
+        i32.store
+        br $label3
+      end $label2
+    end $label3
+    i32.const 3776
+    i32.const 0
+    i32.store
+    loop $label5
+      block $label4
+        i32.const 3776
+        i32.load
+        local.set $var35
+        global.get $global18
+        i32.load
+        local.set $var36
+        local.get $var35
+        local.get $var36
+        i32.lt_s
+        local.set $var37
+        local.get $var37
+        i32.eqz
+        if
+          br $label4
+        end
+        i32.const 3776
+        i32.load
+        local.set $var38
+        global.get $global21
+        local.get $var38
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var39
+        local.get $var39
+        i32.load
+        local.set $var40
+        local.get $var40
+        i32.const 32
+        i32.sub
+        local.set $var41
+        local.get $var41
+        local.set $var113
+        local.get $var113
+        local.set $var42
+        local.get $var42
+        i32.const 0
+        i32.lt_s
+        local.set $var43
+        local.get $var113
+        local.set $var44
+        local.get $var44
+        i32.const 96
+        i32.ge_s
+        local.set $var46
+        local.get $var43
+        local.get $var46
+        i32.or
+        local.set $var112
+        local.get $var112
+        if
+          i32.const 10
+          local.set $var115
+          br $label4
+        end
+        local.get $var113
+        local.set $var47
+        i32.const 1952
+        local.get $var47
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var48
+        local.get $var48
+        i32.load
+        local.set $var49
+        i32.const 3776
+        i32.load
+        local.set $var50
+        local.get $var49
+        local.get $var50
+        i32.add
+        local.set $var51
+        local.get $var51
+        i32.const 96
+        i32.rem_s
+        i32.const -1
+        i32.and
+        local.set $var52
+        local.get $var52
+        i32.const 32
+        i32.add
+        local.set $var53
+        i32.const 3776
+        i32.load
+        local.set $var54
+        i32.const 1152
+        local.get $var54
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var55
+        local.get $var55
+        local.get $var53
+        i32.store
+        i32.const 3776
+        i32.load
+        local.set $var57
+        local.get $var57
+        i32.const 1
+        i32.add
+        local.set $var58
+        i32.const 3776
+        local.get $var58
+        i32.store
+        br $label5
+      end $label4
+    end $label5
+    local.get $var115
+    i32.const 10
+    i32.eq
+    if
+      i32.const -1
+      local.set $var0
+      local.get $var0
+      local.set $var14
+      local.get $var116
+      global.set $global16
+      local.get $var14
+      return
+    end
+    i32.const 3776
+    i32.const 0
+    i32.store
+    loop $label7
+      block $label6
+        i32.const 3776
+        i32.load
+        local.set $var59
+        global.get $global18
+        i32.load
+        local.set $var60
+        local.get $var59
+        local.get $var60
+        i32.lt_s
+        local.set $var61
+        local.get $var61
+        i32.eqz
+        if
+          br $label6
+        end
+        i32.const 3776
+        i32.load
+        local.set $var62
+        i32.const 3776
+        i32.load
+        local.set $var63
+        i32.const 2336
+        local.get $var63
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var64
+        local.get $var64
+        local.get $var62
+        i32.store
+        i32.const 3776
+        i32.load
+        local.set $var65
+        local.get $var65
+        i32.const 1
+        i32.add
+        local.set $var66
+        i32.const 3776
+        local.get $var66
+        i32.store
+        br $label7
+      end $label6
+    end $label7
+    i32.const 3776
+    i32.const 1
+    i32.store
+    loop $label9
+      block $label8
+        i32.const 3776
+        i32.load
+        local.set $var68
+        global.get $global18
+        i32.load
+        local.set $var69
+        local.get $var68
+        local.get $var69
+        i32.lt_s
+        local.set $var70
+        local.get $var70
+        i32.eqz
+        if
+          br $label8
+        end
+        local.get $var111
+        local.set $var71
+        local.get $var71
+        i32.const 1919
+        i32.mul
+        local.set $var72
+        local.get $var72
+        i32.const 7
+        i32.add
+        local.set $var73
+        local.get $var73
+        i32.const 334363
+        i32.rem_s
+        i32.const -1
+        i32.and
+        local.set $var74
+        local.get $var74
+        local.set $var111
+        local.get $var111
+        local.set $var75
+        i32.const 3776
+        i32.load
+        local.set $var76
+        local.get $var75
+        local.get $var76
+        i32.rem_s
+        i32.const -1
+        i32.and
+        local.set $var77
+        local.get $var77
+        local.set $var113
+        local.get $var113
+        local.set $var79
+        i32.const 2336
+        local.get $var79
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var80
+        local.get $var80
+        i32.load
+        local.set $var81
+        local.get $var81
+        local.set $var114
+        i32.const 3776
+        i32.load
+        local.set $var82
+        i32.const 2336
+        local.get $var82
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var83
+        local.get $var83
+        i32.load
+        local.set $var84
+        local.get $var113
+        local.set $var85
+        i32.const 2336
+        local.get $var85
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var86
+        local.get $var86
+        local.get $var84
+        i32.store
+        local.get $var114
+        local.set $var87
+        i32.const 3776
+        i32.load
+        local.set $var88
+        i32.const 2336
+        local.get $var88
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var90
+        local.get $var90
+        local.get $var87
+        i32.store
+        i32.const 3776
+        i32.load
+        local.set $var91
+        local.get $var91
+        i32.const 1
+        i32.add
+        local.set $var92
+        i32.const 3776
+        local.get $var92
+        i32.store
+        br $label9
+      end $label8
+    end $label9
+    i32.const 3776
+    i32.const 0
+    i32.store
+    loop $label11
+      block $label10
+        i32.const 3776
+        i32.load
+        local.set $var93
+        global.get $global18
+        i32.load
+        local.set $var94
+        local.get $var93
+        local.get $var94
+        i32.lt_s
+        local.set $var95
+        local.get $var95
+        i32.eqz
+        if
+          br $label10
+        end
+        i32.const 3776
+        i32.load
+        local.set $var96
+        i32.const 1152
+        local.get $var96
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var97
+        local.get $var97
+        i32.load
+        local.set $var98
+        i32.const 3776
+        i32.load
+        local.set $var99
+        i32.const 2336
+        local.get $var99
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var101
+        local.get $var101
+        i32.load
+        local.set $var102
+        i32.const 1552
+        local.get $var102
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var103
+        local.get $var103
+        local.get $var98
+        i32.store
+        i32.const 3776
+        i32.load
+        local.set $var104
+        local.get $var104
+        i32.const 1
+        i32.add
+        local.set $var105
+        i32.const 3776
+        local.get $var105
+        i32.store
+        br $label11
+      end $label10
+    end $label11
+    global.get $global18
+    i32.load
+    local.set $var106
+    global.get $global20
+    i32.load
+    local.set $var107
+    local.get $var106
+    local.get $var107
+    i32.ne
+    local.set $var108
+    local.get $var108
+    if
+      i32.const 0
+      local.set $var0
+      local.get $var0
+      local.set $var14
+      local.get $var116
+      global.set $global16
+      local.get $var14
+      return
+    end
+    i32.const 3776
+    i32.const 0
+    i32.store
+    loop $label13
+      block $label12
+        i32.const 3776
+        i32.load
+        local.set $var109
+        global.get $global18
+        i32.load
+        local.set $var110
+        local.get $var109
+        local.get $var110
+        i32.lt_s
+        local.set $var3
+        local.get $var3
+        i32.eqz
+        if
+          i32.const 28
+          local.set $var115
+          br $label12
+        end
+        i32.const 3776
+        i32.load
+        local.set $var4
+        i32.const 1552
+        local.get $var4
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var5
+        local.get $var5
+        i32.load
+        local.set $var6
+        i32.const 3776
+        i32.load
+        local.set $var7
+        global.get $global19
+        local.get $var7
+        i32.const 2
+        i32.shl
+        i32.add
+        local.set $var8
+        local.get $var8
+        i32.load
+        local.set $var9
+        local.get $var6
+        local.get $var9
+        i32.ne
+        local.set $var10
+        local.get $var10
+        if
+          i32.const 26
+          local.set $var115
+          br $label12
+        end
+        i32.const 3776
+        i32.load
+        local.set $var11
+        local.get $var11
+        i32.const 1
+        i32.add
+        local.set $var12
+        i32.const 3776
+        local.get $var12
+        i32.store
+        br $label13
+      end $label12
+    end $label13
+    local.get $var115
+    i32.const 26
+    i32.eq
+    if
+      i32.const 0
+      local.set $var0
+      local.get $var0
+      local.set $var14
+      local.get $var116
+      global.set $global16
+      local.get $var14
+      return
+    else
+      local.get $var115
+      i32.const 28
+      i32.eq
+      if
+        i32.const 1
+        local.set $var0
+        local.get $var0
+        local.set $var14
+        local.get $var116
+        global.set $global16
+        local.get $var14
+        return
+      end
+    end
+    i32.const 0
+    return

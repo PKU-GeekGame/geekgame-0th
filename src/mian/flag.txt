@@ -1,0 +1,1 @@
+flag{to_main_or_not_to_main_that_is_a_question}

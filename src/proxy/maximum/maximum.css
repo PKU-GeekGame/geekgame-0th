@@ -1,0 +1,190 @@
+/* No Flag Here */
+html,body{
+    height:100%;
+    width: 100%;
+    margin:0;
+}
+body{
+    background-color: #faebd7;
+    font-family: 'Microsoft Yahei', sans-serif;
+}
+.content{
+    max-width: 48em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.title{
+    text-align: center;
+}
+.title>*{
+    display:inline-block;
+    vertical-align: top;
+}
+.title-text{
+    font-weight: 700;
+    font-size: 74px;
+}
+.title-help{
+    padding-top:.5rem;
+    text-decoration: none;
+    font-weight:bold;
+    font-size: 30px;
+    color:#0000ff;
+    user-select: none;
+}
+.title-help:hover,.title-help:active{
+    color:#555555;
+    cursor: pointer;
+}
+.head{
+    text-align: center;
+    padding:10px;
+}
+.head>*{
+    display:inline-block;
+    border-radius: 5px;
+    background-color:#bbada0;
+    color:#f9f6f2;
+    font-weight: bold;
+    padding:10px;
+    width: 6em;
+}
+.head>*+*{
+    margin-left: 0.5rem;
+}
+#number{
+    width: 4em;
+    height: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #edcf72;
+    color: #f9f6f2;
+    font-weight: 700;
+    font-size: 53px;
+    text-align: center;
+    border-radius: 1em;
+    line-height: 4em;
+}
+.button{
+    text-align: center;
+    padding:10px;
+}
+.button>*{
+    display: inline-block;
+    border-radius: 5px;
+    color:#f9f6f2;
+    width: 4em;
+    font-weight: bold;
+    font-size: 30px;
+    user-select: none;
+}
+.button>*:hover,.button>*:active{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.button>*+*{
+    margin-left: 1rem;
+}
+#message{
+    border-radius:5px;
+    padding:10px;
+    display:none;
+    font-weight: bold;
+}
+#list{
+    background-color:#f0e68c;
+    border-radius: 5px;
+    padding:10px;
+    text-align: left;
+    word-break: keep-all;
+    font-weight: lighter;
+    min-height:1em;
+}
+#cover{
+    background-color: #000000;
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+    opacity:0.3;
+    display:none;
+    z-index:2;
+    height:100%;
+}
+.window{
+    background-color: #faebd7;
+    border-radius: 5px;
+    padding:20px;
+    border-color: #ddd2b7;
+    border-width: 5px;
+    border-style: solid;
+    margin-left: auto;
+    margin-right:auto;
+    width: 55%;
+    display:none;
+    position:absolute;
+    top:20%;
+    left:20%;
+    z-index:3;
+}
+.window-close{
+    border-color: #d8ba6f;
+    border-style: solid;
+    color:#d8ba6f;
+    float:right;
+    font-weight: bold;
+    font-size:15px;
+    cursor: pointer;
+    height:20px;
+    width:20px;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0.5;
+    user-select: none;
+}
+.window-close:hover,.close:active{
+    opacity: 1;
+}
+.window-title{
+    text-align: center;
+    font-weight:bold;
+    font-size:30px;
+    margin-bottom: 10px;
+}
+.window-subtitle{
+    font-weight: bold;
+}
+.window-subtitle::before{
+    content:"▶ ";
+    color:darkred;
+}
+.window-text{
+    text-indent: 2em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.window-color{
+    border-radius: 5px;
+    color:#f9f6f2;
+    font-weight: bold;
+}
+.window-buttons{
+    text-align: center;
+    padding:10px;
+}
+.window-button{
+    border-radius: 5px;
+    color:#f9f6f2;
+    width: 4em;
+    font-weight: bold;
+    font-size: 30px;
+    user-select: none;
+}
+.window-button:hover,.window-button:active{
+    opacity: 0.5;
+    cursor: pointer;
+}
+.window-button>*+*{
+    margin-left: 1rem;
+}
+/* See? */

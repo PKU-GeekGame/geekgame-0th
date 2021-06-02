@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Unbreakable Flask App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <!-- Bootstrap，双关了 -->
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>自举模拟器</h1>
+        </div>
+        <p>登录之后输入 getflag 即可获得 flag</p>
+        <p>输入正确的 flag 即可登录</p>
+        <br>
+        
+        <div class="well">
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <input id="token" class="form-control" placeholder="Token">
+                </div>
+                <div class="col-lg-6">
+                    <input id="action" class="form-control" placeholder="操作" list="actions-list">
+                    <datalist id="actions-list">
+                        <option value="login">
+                        <option value="getflag">
+                        <option value="logout">
+                    </datalist>
+                </div>
+            </div>
+            <br>
+            
+            <p>
+                <button type="button" class="btn btn-primary" onclick="submit()">提交</button>
+                &nbsp;<span id="result"></span>
+            </p>
+        </div>
+        
+        <br>
+
+        <p><a href="/src">开放源代码</a></p>
+
+        
+    </div>
+    <script>
+        function submit() {
+            let body = {
+                token: document.getElementById('token').value,
+                action: document.getElementById('action').value,
+            };
+            if(body.action=='login')
+                body.flag = prompt('flag:')
+            
+            fetch('?', {
+                method: 'post',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(body),
+            })
+                .then((res)=>res.text())
+                .then((text)=>{
+                    document.getElementById('result').textContent = text;
+                });
+        }
+    </script>
+</body>
+</html>

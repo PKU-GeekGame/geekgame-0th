@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "question_html": "理科一号楼共有 8 个计算中心机房，其中第 n 机房的门牌号是X<sub>n</sub>（1000≤X<sub>n</sub>≤9999），求 ∑ (X<sub>n</sub>)<sup>n</sup> 的最大质因数",
+    "answer_validator": "^\\d+$",
+    "answer": ["108475792463321"]
+  },
+  {
+    "id": "2",
+    "question_html": "北京大学的哪门课被称为“讲得好、作业少、考试水、给分高的课”（中文全称）？",
+    "answer_validator": "^.+老师的.+$",
+    "answer": ["穆良柱老师的热学"]
+  },
+  {
+    "id": "3",
+    "question_html": "根据 HTCPCP-TEA 协议，当一个茶壶暂时无法煮咖啡时，应当返回什么状态码？",
+    "answer_validator": "^\\d{3}$",
+    "answer": ["503"]
+  },
+  {
+    "id": "4",
+    "question_html": "在 Conway's Game of Life 中，有多少种稳定的由 7 个活细胞构成的局面？稳定是指每个时刻的状态都与初始状态完全相同。旋转或对称后相同的视为同一种局面。",
+    "answer_validator": "^\\d+$",
+    "answer": ["4"]
+  },
+  {
+    "id": "5",
+    "question_html": "FAStT Management Suite Java 是 IBM 推出的一款软件，它的默认密码是？",
+    "answer_validator": "^\\w+$",
+    "answer": ["config"]
+  },
+  {
+    "id": "6",
+    "question_html": "最小的汉信码图案由多少像素（被称为“模块”）构成？",
+    "answer_validator": "^\\d+$",
+    "answer": ["529"]
+  },
+  {
+    "id": "7",
+    "question_html": "哪个国密算法基于椭圆曲线密码？",
+    "answer_validator": "^SM\\d+$",
+    "answer": ["SM2"]
+  },
+  {
+    "id": "8",
+    "question_html": "在 2013 年 5 月 4 日，全世界共有多少可用的顶级域名（TLD）？",
+    "answer_validator": "^\\d+$",
+    "answer": ["317", "329"]
+  }
+]
