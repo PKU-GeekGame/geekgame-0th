@@ -1,29 +1,3 @@
-<style>
-img {
-    max-height: 30em;
-    max-width: 80%;
-    box-shadow: 0 1px 0.5em rgba(0, 0, 0, .25);
-}
-body {
-    background-color: #f3f3f3;
-}
-#write {
-    max-width: 900px !important;
-    box-shadow: 0 0 2em rgba(0, 0, 0, .15);
-    background-color: white;
-    min-height: 100vh;
-}
-#write p {
-    margin: 1em 0;
-}
-</style>
-
-# 比赛资料汇总
-
-第零届 北京大学信息安全综合能力竞赛 · PKUGGG Team
-
-
-
 ## 来自命题人的 Writeup
 
 - **xmcp：**[.HTML](wp-xmcp/wp-xmcp.html) / [.MD](wp-xmcp/wp-xmcp.md)
@@ -55,15 +29,4 @@ body {
   亮点：没听说过 Huffman 编码也解出了计算概论 B
 
 转载前请向相应作者获得许可。
-
-
-
-## 题目
-
-- **题目源码和部署环境：**[GitHub](https://github.com/lcpu-club/geekgame-0th)
-  包括所有题目的源代码和部署题目所需的 Dockerfile
-- **题面：**[.HTML](desc/description.html) / [.MD](desc/description.md)
-  包括所有题目的分值和描述
-
-源码采用 [BSD 许可协议](https://opensource.org/licenses/BSD-3-Clause) 进行许可，题面采用 [知识共享署名-非商业性使用 4.0 国际许可协议（CC BY-NC 4.0）](http://creativecommons.org/licenses/by-nc/4.0/) 进行许可。
 
