@@ -3,22 +3,6 @@
 题目名称后面的 (x@k) 表示此题基础分值为 x，且有 k 人解出。
 
 <style>
-img {
-    max-height: 30em;
-    max-width: 80%;
-    box-shadow: 0 1px 0.5em rgba(0, 0, 0, .25);
-}
-body {
-    background-color: #f3f3f3;
-}
-#write {
-    max-width: 900px !important;
-    box-shadow: 0 0 2em rgba(0, 0, 0, .15);
-    background-color: white;
-}
-#write p {
-    margin: 1em 0;
-}
 .you-name {
     background: linear-gradient(0deg, #26791c, #1d1d1d, #1d1d1d);
     text-shadow: 0 0 1px rgba(21, 66, 14, 0.4);
