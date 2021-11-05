@@ -2,17 +2,8 @@
 
 题目名称后面的 (x@k) 表示此题基础分值为 x，且有 k 人解出。
 
-<style>
-.you-name {
-    background: linear-gradient(0deg, #26791c, #1d1d1d, #1d1d1d);
-    text-shadow: 0 0 1px rgba(21, 66, 14, 0.4);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
-}
-</style>
+题面中的文件链接已经失效。可以在题目源码目录里找到附件和题目运行环境。
+
 
 
 
