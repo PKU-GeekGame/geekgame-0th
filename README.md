@@ -1,12 +1,16 @@
 # 0th PKU GeekGame · Genesis
 
-第零届北京大学信息安全综合能力竞赛 比赛资料汇总
+第零届北京大学信息安全综合能力竞赛
+
+2021.5.16 ~ 2021.5.23
 
 by PKUGGG Team
 
+主页：[geekgame.pku.edu.cn](https://geekgame.pku.edu.cn/)
 
 
-## Content
+
+## 比赛资料汇总
 
 - [problemset](problemset/)：题面
 - [writeups](writeups/)：命题人和选手 Writeup
